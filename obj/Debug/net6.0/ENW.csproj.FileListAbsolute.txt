@@ -1,0 +1,17 @@
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.csproj.AssemblyReference.cache
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.AssemblyInfoInputs.cache
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.AssemblyInfo.cs
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.csproj.CoreCompileInputs.cache
+C:\Users\Zaku\Desktop\ENW\ENW\bin\Debug\net6.0\ENW.exe
+C:\Users\Zaku\Desktop\ENW\ENW\bin\Debug\net6.0\ENW.deps.json
+C:\Users\Zaku\Desktop\ENW\ENW\bin\Debug\net6.0\ENW.runtimeconfig.json
+C:\Users\Zaku\Desktop\ENW\ENW\bin\Debug\net6.0\ENW.dll
+C:\Users\Zaku\Desktop\ENW\ENW\bin\Debug\net6.0\ENW.pdb
+C:\Users\Zaku\Desktop\ENW\ENW\bin\Debug\net6.0\Spectre.Console.dll
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.csproj.CopyComplete
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.dll
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\refint\ENW.dll
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.pdb
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ENW.genruntimeconfig.cache
+C:\Users\Zaku\Desktop\ENW\ENW\obj\Debug\net6.0\ref\ENW.dll
