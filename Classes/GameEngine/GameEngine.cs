@@ -1,7 +1,7 @@
 ﻿using Spectre.Console;
 
 using ENW.Classes.Horses;
-using System.Security.Cryptography.X509Certificates;
+using ENW.Classes.Race;
 
 namespace GameEngine
 {
@@ -32,7 +32,8 @@ namespace GameEngine
                 AnsiConsole.Markup("You will have 50 points to distribute in 5 attributes to a max of 20 per attribute. Pick wisely!\n");
                 int streetCred = AnsiConsole.Prompt(
                         new TextPrompt<int>("Street Cred: \n")
-                            .ValidationErrorMessage("[red]That's not a valid age[/]")
+                            .ValidationErrorMessage("[red]That's not a valid number[/]" +
+                            "")
                             .Validate(streetCred =>
                             {
                                 return streetCred switch
@@ -44,7 +45,7 @@ namespace GameEngine
                             }));
                 int stamina = AnsiConsole.Prompt(
                         new TextPrompt<int>("Stamina: \n")
-                            .ValidationErrorMessage("[red]That's not a valid age[/]")
+                            .ValidationErrorMessage("[red]That's not a valid number[/]")
                             .Validate(stamina =>
                             {
                                 return stamina switch
@@ -56,7 +57,7 @@ namespace GameEngine
                             }));
                 int strength = AnsiConsole.Prompt(
                         new TextPrompt<int>("Strength: \n")
-                            .ValidationErrorMessage("[red]That's not a valid age[/]")
+                            .ValidationErrorMessage("[red]That's not a valid number[/]")
                             .Validate(strength =>
                             {
                                 return strength switch
@@ -68,7 +69,7 @@ namespace GameEngine
                             }));
                 int speed = AnsiConsole.Prompt(
                         new TextPrompt<int>("Speed: \n")
-                            .ValidationErrorMessage("[red]That's not a valid age[/]")
+                            .ValidationErrorMessage("[red]That's not a valid number[/]")
                             .Validate(speed =>
                             {
                                 return speed switch
@@ -80,7 +81,7 @@ namespace GameEngine
                             }));
                 int dexterity = AnsiConsole.Prompt(
                         new TextPrompt<int>("Dexterity: \n")
-                            .ValidationErrorMessage("[red]That's not a valid age[/]")
+                            .ValidationErrorMessage("[red]That's not a valid number[/]")
                             .Validate(dexterity =>
                             {
                                 return dexterity switch
@@ -98,7 +99,8 @@ namespace GameEngine
 
             void Race()
             {
-
+                var race = new Race("ah", 6);
+                race.Start();
             }
 
             void Menu()
@@ -108,16 +110,16 @@ namespace GameEngine
                     .PageSize(3)
                     .AddChoices(new[] { "[#afaf00]Race[/]", "[#afaf00]Shop[/]", "[#afaf00]Exit[/]" }));
 
-                if (menuOptions == "Race")
+                if (menuOptions == "[#afaf00]Race[/]")
                 {
                     Race();
                 }
-                else if (menuOptions == "Shop")
+                else if (menuOptions == "[#afaf00]Shop[/]")
                 {
 
 
                 }
-                else if (menuOptions == "Exit")
+                else if (menuOptions == "[#afaf00]Exit[/]")
                 {
                     System.Environment.Exit(1);
 

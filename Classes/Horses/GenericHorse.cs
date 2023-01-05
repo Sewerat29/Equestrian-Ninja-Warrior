@@ -1,13 +1,8 @@
-﻿using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ENW.Classes.Horses
+﻿namespace ENW.Classes.Horses
 {
-    internal class GenericHorse
+    internal class GenericHorse : IGenericHorse
     {
-        private string name;
+        private string Name { get; set; }
         private string color;
 
         private int stamina;
@@ -21,7 +16,7 @@ namespace ENW.Classes.Horses
 
         public GenericHorse(string name, string color, int streetCred, int stamina, int strength, int speed, int dexterity)
         {
-            this.name = name;
+            this.Name = name;
             this.color = color;
             this.streetCred = streetCred;
             this.stamina = stamina;
@@ -29,7 +24,5 @@ namespace ENW.Classes.Horses
             this.speed = speed;
             this.dexterity = dexterity;
         }
-
-
     }
 }
