@@ -8,7 +8,7 @@ namespace ENW
     {
         static void Main(string[] args)
         {
-            AnsiConsole.Markup("Welcome to Equestrian Ninja Warrior\n");
+            AnsiConsole.Markup("Welcome to EQUESTRIAN NINJA WARRIOR®!! [#00d700]No Horses were armed during the activities of this game![/]\n");
             var GameRunner = new Runner(false);
             GameRunner.Run();
 

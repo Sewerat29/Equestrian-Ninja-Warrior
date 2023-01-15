@@ -1,28 +1,47 @@
 ﻿namespace ENW.Classes.Horses
 {
+    public struct SingleHorseRace
+    {
+        public string[] ObstaclesCheck;
+        public int place;
+    };
+
     internal class GenericHorse : IGenericHorse
     {
-        private string Name { get; set; }
-        private string color;
+        public string Name { get; set; }
+        public string Color { get; set; }
 
-        private int stamina;
-        private int strength;
-        private int speed;
-        private int dexterity;
-        private int streetCred;
+        public int Stamina { get; set; }
+        public int Strength { get; set; }
+        public int Speed { get; set; }
+        public int Dexterity { get; set; }
+        public int StreetCred { get; set; }
 
-        private int strikes = 0;
-        private bool isAlive = true;
+        public int Strikes { get; set; }
+        public bool IsAlive { get; set; }
 
-        public GenericHorse(string name, string color, int streetCred, int stamina, int strength, int speed, int dexterity)
+        public int Money { get; set; }
+
+        public SingleHorseRace[]? RaceLogs {get; set;}
+
+        public GenericHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, int money)
         {
-            this.Name = name;
-            this.color = color;
-            this.streetCred = streetCred;
-            this.stamina = stamina;
-            this.strength = strength;
-            this.speed = speed;
-            this.dexterity = dexterity;
+            Name = name;
+            Color = color;
+           
+            Stamina = stamina;
+            Strength = strength;
+            Speed = speed;
+            
+            Dexterity = dexterity;
+            
+            StreetCred = streetCred;
+            
+            Strikes = strikes;    //Eventos. Cavalo leva um strike se falhar num Obstáculo. 3 Strikes e isAlive=false
+            IsAlive = isAlive;
+            
+            Money = money;
+
         }
     }
 }

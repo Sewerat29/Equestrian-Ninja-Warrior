@@ -1,11 +1,11 @@
 ﻿
 using Spectre.Console;
-using System;
 
 namespace ENW.Classes.Obstacles
 {
     internal class Obstacles
     {
+        //Enums
         private enum TypesOfObstacles
         {
             STAMINA,
@@ -14,43 +14,65 @@ namespace ENW.Classes.Obstacles
             DEXTERITY
         }
 
-        public void Generate()
+        public struct ObstaclesResponse
+        {
+            public string Type;
+            public int Difficulty;
+        }
+
+        public ObstaclesResponse Generate()
         {
             Random rnd = new Random();
-            int ObstacleNumber = rnd.Next(0, 3);
+            int ObstacleNumber = rnd.Next(0, 4);
             TypesOfObstacles ObstacleType = (TypesOfObstacles)ObstacleNumber;
+            ObstaclesResponse response;
 
             switch (ObstacleType)
             {
                 case TypesOfObstacles.STAMINA:
                     {
-                        AnsiConsole.Markup("STAMINA\n");
+                        response.Type = TypesOfObstacles.STAMINA.ToString(); //Override ToString
+                        response.Difficulty = rnd.Next(0, 20);
 
-                        break;
+                        AnsiConsole.Markup("The Eternal® treadmill is upon them! Can our contestants endure? \n");
+
+                        return response;
                     }
                 case TypesOfObstacles.STRENGTH:
                     {
-                        AnsiConsole.Markup("STRENGTH\n");
+                        response.Type = TypesOfObstacles.STRENGTH.ToString();
+                        response.Difficulty = rnd.Next(0, 20);
 
-                        break;
+                        AnsiConsole.Markup("It's really just a Really Big Boulder®! Brought to us by our lovely sponsor, [#00ffd7]Arasaka® Industries![/]\n");
+
+                        return response;
                     }
                 case TypesOfObstacles.SPEED:
                     {
-                        AnsiConsole.Markup("SPEED\n");
+                        response.Type = TypesOfObstacles.SPEED.ToString();
+                        response.Difficulty = rnd.Next(0, 20);
 
-                        break;
+                        AnsiConsole.Markup("The Giant Horse-Eating Truck® has just spawned on the track! Will our horses be able to outrun it??\n");
+
+                        return response;
                     }
                 case TypesOfObstacles.DEXTERITY:
                     {
-                        AnsiConsole.Markup("DEXTERITY\n");
+                        response.Type = TypesOfObstacles.DEXTERITY.ToString();
+                        response.Difficulty = rnd.Next(0, 20);
 
-                        break;
+                        AnsiConsole.Markup("In come the Spinning Blades ready to chop these poor horses to shreds!\n");
+
+                        return response;
                     }
                 default:
-                    AnsiConsole.Markup("LUL"); 
-                    break;
+                    {
+                        response.Type = "NON VALID TYPE";
+                        response.Difficulty = 0;
+
+                        return response;
+                    }
             }
         }
-
     }
 }
