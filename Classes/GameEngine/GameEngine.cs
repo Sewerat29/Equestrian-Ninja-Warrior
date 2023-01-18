@@ -121,7 +121,7 @@ namespace GameEngine
 
                 IGenericHorse[] horseList = { horse1, horse2, horse3, horse4, MyHorse};
 
-                var race = new Race(horseList, 5);
+                var race = new Race(horseList, 6);
                 race.Start();
                // Console.Clear();
                 Menu(MyHorse);
@@ -142,6 +142,7 @@ namespace GameEngine
                 }
                 else if (menuOptions == "[#afaf00]Shop[/]")
                 {
+                    Console.Clear();
                     AnsiConsole.Markup("Welcome to the Shop! What can i get you?");
 
                 }

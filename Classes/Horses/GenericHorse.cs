@@ -2,8 +2,16 @@
 {
     public struct SingleHorseRace
     {
-        public string[] ObstaclesCheck;
-        public int place;
+        public List<string> ObstaclesCheck;
+        public int Points;
+        public int Place;
+
+        public SingleHorseRace(int place, int points, int numberofTraps)
+        {
+            ObstaclesCheck = new List<string>( new string[numberofTraps] );
+            Points = points;
+            Place = place;
+        }
     };
 
     internal class GenericHorse : IGenericHorse
@@ -22,7 +30,7 @@
 
         public int Money { get; set; }
 
-        public SingleHorseRace[]? RaceLogs {get; set;}
+        public List<SingleHorseRace> RaceLogs {get; set;}
 
         public GenericHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, int money)
         {
@@ -42,6 +50,7 @@
             
             Money = money;
 
+            RaceLogs = new List<SingleHorseRace>();
         }
     }
 }

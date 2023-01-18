@@ -12,6 +12,6 @@
         int Strikes { get; set; }
         bool IsAlive { get; set; }
         int Money { get; set; }
-        SingleHorseRace[] RaceLogs { get; set; }
+        List<SingleHorseRace> RaceLogs { get; set; }
     }
 }

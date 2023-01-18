@@ -81,11 +81,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zaku\\Downloads\\ENW\\ENW.csproj",
+      "projectUniqueName": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW.csproj",
       "projectName": "ENW",
-      "projectPath": "C:\\Users\\Zaku\\Downloads\\ENW\\ENW.csproj",
+      "projectPath": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW.csproj",
       "packagesPath": "C:\\Users\\Zaku\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zaku\\Downloads\\ENW\\obj\\",
+      "outputPath": "C:\\Users\\Zaku\\Desktop\\ENW\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Zaku\\AppData\\Roaming\\NuGet\\NuGet.Config",
