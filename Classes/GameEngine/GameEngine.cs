@@ -5,6 +5,8 @@ using ENW.Classes.Stats;
 using Spectre.Console;
 using System.Text;
 
+//This is the center of the action that makes the whole game run
+
 namespace GameEngine
 {
     public class Runner
@@ -44,7 +46,8 @@ namespace GameEngine
                     .AddChoices(new[]{ "[red]Red[/]", "[green]Green[/]", "[blue]Blue[/]", "[magenta]Magenta[/]", "[#ff5f00]Orange[/]", "[#ff5faf]Pink[/]" }));
                                         
                 Console.Clear();
-
+                
+                //Stat Creator
                 AnsiConsole.Markup("You will have 50 points to distribute in 5 attributes to a max of 20 per attribute. Pick wisely!\n");
                 int streetCred = AnsiConsole.Prompt(
                         new TextPrompt<int>("Street Cred: \n")
@@ -123,9 +126,11 @@ namespace GameEngine
             //Listas e Cavalos Opositores
             void Race(IGenericHorse MyHorse)
             {
+                //List with the Npc Horses
+                Console.Clear();
                 var horse1 = new GenericHorse("[Red]Juca[/]", "Red", 10, 9, 14, 4, 18, 0, true, 0);
-                var horse2 = new GenericHorse("[Blue]Martim[/]", "Blue", 18, 6, 14, 12, 10, 0, true, 0);
-                var horse3 = new GenericHorse("[Green]Pimenta[/]", "Green", 15, 7, 7, 7, 15, 0, true, 0);
+                var horse2 = new GenericHorse("[Blue]Martim[/]", "Blue", 18, 16, 14, 12, 10, 0, true, 0);
+                var horse3 = new GenericHorse("[Green]Pimenta[/]", "Green", 8, 7, 7, 7, 15, 0, true, 0);
                 var horse4 = new GenericHorse("[magenta]Juncal[/]", "Magenta", 12, 18, 7, 7, 18, 0, true, 0);
 
                 IGenericHorse[] horseList = { horse1, horse2, horse3, horse4, MyHorse};
@@ -138,6 +143,7 @@ namespace GameEngine
 
             void Shop(IGenericHorse MyHorse)
             {
+                Console.Clear();    
                 var Shop = new Shop();
                 Shop.ShopMenu(MyHorse);
                 Menu(MyHorse);
@@ -145,11 +151,13 @@ namespace GameEngine
 
             void Stats(IGenericHorse MyHorse)
             {
+                Console.Clear();
                 var Stats = new Stats();
                 Stats.StatsList(MyHorse);
                 Menu(MyHorse);
             }
 
+            //Main Menu
             void Menu(IGenericHorse MyHorse)
             {
                 string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
@@ -164,6 +172,7 @@ namespace GameEngine
                 else if (menuOptions == "[#afaf00]Shop[/]")
                 {
                     Shop(MyHorse);
+                    Menu(MyHorse);
                 }
                 else if (menuOptions == "[#afaf00]Stats[/]")
                 {

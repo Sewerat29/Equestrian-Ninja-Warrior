@@ -9,12 +9,13 @@ namespace ENW.Classes.Stats
         {
             AnsiConsole.Write(new BarChart()
                 .Width(50)
-                .Label($"[red bold underline]{MyHorse.Name} Stats[/]")
+                .Label($"[red bold underline]{MyHorse.Name}'s Stats[/] \n")
                 .CenterLabel()
                 .AddItem("Dexterity", MyHorse.Dexterity, Color.Yellow)
                 .AddItem("Strength", MyHorse.Strength, Color.Red)
                 .AddItem("Speed", MyHorse.Speed, Color.Blue)
                 .AddItem("Stamina", MyHorse.Stamina, Color.Green));
+            AnsiConsole.Markup("\n");
         }
     }
 }

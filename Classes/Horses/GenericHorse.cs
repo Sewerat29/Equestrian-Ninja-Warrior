@@ -45,7 +45,7 @@
             
             StreetCred = streetCred;
             
-            Strikes = strikes;    //Eventos. Cavalo leva um strike se falhar num Obstáculo. 3 Strikes e isAlive=false
+            Strikes = strikes;    //Eventos. If a horse has 3 Strikes it stops running 
             IsAlive = isAlive;
             
             Money = money;

@@ -2,7 +2,7 @@
 
 namespace ENW.Classes.Horses
 {
-    //Herança
+    //Inheritance . Purchasing Upgrades on the Shop will turn your GenericHorse into a BionicHorse
     internal class BionicHorse : GenericHorse
     {
         bool ironLungs = false;    //+2 stamina
