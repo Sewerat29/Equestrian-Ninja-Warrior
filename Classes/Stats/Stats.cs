@@ -7,6 +7,7 @@ namespace ENW.Classes.Stats
     {
         public void StatsList(IGenericHorse MyHorse)
         {
+            
             AnsiConsole.Write(new BarChart()
                 .Width(50)
                 .Label($"[red bold underline]{MyHorse.Name}'s Stats[/] \n")
@@ -16,6 +17,10 @@ namespace ENW.Classes.Stats
                 .AddItem("Speed", MyHorse.Speed, Color.Blue)
                 .AddItem("Stamina", MyHorse.Stamina, Color.Green));
             AnsiConsole.Markup("\n");
+            AnsiConsole.Write("Money: " + MyHorse.Money);
+            AnsiConsole.Markup("\n");
+            AnsiConsole.Write("Bionic: " + MyHorse.IsBionic);
+            AnsiConsole.Markup("\n\n");
         }
     }
 }

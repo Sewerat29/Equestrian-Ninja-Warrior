@@ -11,7 +11,7 @@ namespace ENW.Classes.Horses
         bool ultraInstinct = false;   //+2 dexterity
         bool totemOfUndying = false; //+1 strike
 
-        public BionicHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, int money, bool ironLungs, bool assBlaster3000, bool absoluteUnit, bool springLegs, bool totemOfUndying) : base(name, color, stamina, strength, speed, dexterity, strikes, streetCred, isAlive, money)
+        public BionicHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, int money,bool isBionic, bool ironLungs, bool assBlaster3000, bool absoluteUnit, bool springLegs, bool totemOfUndying) : base(name, color, stamina, strength, speed, dexterity, strikes, streetCred, isAlive, isBionic)
         {
             this.ironLungs = ironLungs;
             this.assBlaster3000 = assBlaster3000; 
