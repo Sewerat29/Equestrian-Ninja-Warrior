@@ -113,7 +113,7 @@ namespace GameEngine
 
                             }));
 
-                var horse = new GenericHorse(name, color, streetCred, stamina, strength, speed, dexterity, 0, true, 0);
+                var horse = new GenericHorse(name, color, streetCred, stamina, strength, speed, dexterity, 0, true);
 
                 IGenericHorse[] horseList = { horse };
 
@@ -128,10 +128,10 @@ namespace GameEngine
             {
                 //List with the Npc Horses
                 Console.Clear();
-                var horse1 = new GenericHorse("[Red]Juca[/]", "Red", 10, 9, 14, 4, 18, 0, true, 0);
-                var horse2 = new GenericHorse("[Blue]Martim[/]", "Blue", 18, 16, 14, 12, 10, 0, true, 0);
-                var horse3 = new GenericHorse("[Green]Pimenta[/]", "Green", 8, 7, 7, 7, 15, 0, true, 0);
-                var horse4 = new GenericHorse("[magenta]Juncal[/]", "Magenta", 12, 18, 7, 7, 18, 0, true, 0);
+                var horse1 = new GenericHorse("[Red]Juca[/]", "Red", 10, 9, 14, 4, 18, 0, true);
+                var horse2 = new GenericHorse("[Blue]Martim[/]", "Blue", 18, 16, 14, 12, 10, 0, true);
+                var horse3 = new GenericHorse("[Green]Pimenta[/]", "Green", 8, 7, 7, 7, 15, 0, true);
+                var horse4 = new GenericHorse("[magenta]Juncal[/]", "Magenta", 12, 18, 7, 7, 18, 0, true);
 
                 IGenericHorse[] horseList = { horse1, horse2, horse3, horse4, MyHorse};
 
@@ -249,7 +249,7 @@ namespace GameEngine
                 var line = reader.ReadLine();
                 var values = line?.Split(',');
 
-                myHorse = new GenericHorse(values[0], values[1], Int16.Parse(values[2]), Int16.Parse(values[3]), Int16.Parse(values[4]), Int16.Parse(values[5]), Int16.Parse(values[6]), Int16.Parse(values[7]), true, 0);
+                myHorse = new GenericHorse(values[0], values[1], Int16.Parse(values[2]), Int16.Parse(values[3]), Int16.Parse(values[4]), Int16.Parse(values[5]), Int16.Parse(values[6]), Int16.Parse(values[7]), true);
             }
 
             return myHorse;

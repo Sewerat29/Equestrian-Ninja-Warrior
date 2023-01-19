@@ -45,8 +45,9 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-
-                                } else
+                                    horsesList[j].Money += 100;
+                                } 
+                                else
                                 {
                                     AnsiConsole.Markup($"{horsesList[j].Name} [red]has the lungs of a smoker![/] \n");
 
@@ -67,6 +68,7 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
+                                    horsesList[j].Money += 100;
                                 }
                                 else
                                 {
@@ -91,8 +93,9 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-
-                                } else
+                                    horsesList[j].Money += 100;
+                                } 
+                                else
                                 {
                                     AnsiConsole.Markup($"{horsesList[j].Name} [red]is now fuel for the almighty Truck®![/] \n");
 
@@ -113,7 +116,7 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-
+                                    horsesList[j].Money += 100;
                                 }
                                 else
                                 {
