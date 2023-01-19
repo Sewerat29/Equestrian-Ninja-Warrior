@@ -1,12 +1,10 @@
 ﻿using ENW.Classes.Horses;
 using Spectre.Console;
-
 namespace ENW.Classes.Race
 {
     internal class Race
     {
         private IGenericHorse[] horsesList;
-        private IGenericHorse[]? scoreBoard;
         private int numberOfTraps;
 
         public Race(IGenericHorse[] horsesList, int numberOfTraps)
@@ -45,14 +43,16 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-
-                                } else
+                                    horsesList[j].Money += 100;
+                                } 
+                                else
                                 {
                                     AnsiConsole.Markup($"{horsesList[j].Name} [red]has the lungs of a smoker![/] \n");
 
                                     SingleHorseRace obstacleLog = horsesList[j].RaceLogs[RaceLogsLength - 1];
                                     obstacleLog.ObstaclesCheck[i] = "STRIKE";
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
+                                    
                                 }
 
                                 break;
@@ -67,6 +67,7 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
+                                    horsesList[j].Money += 100;
                                 }
                                 else
                                 {
@@ -91,8 +92,9 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-
-                                } else
+                                    horsesList[j].Money += 100;
+                                } 
+                                else
                                 {
                                     AnsiConsole.Markup($"{horsesList[j].Name} [red]is now fuel for the almighty Truck®![/] \n");
 
@@ -113,7 +115,7 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-
+                                    horsesList[j].Money += 100;
                                 }
                                 else
                                 {
@@ -121,7 +123,7 @@ namespace ENW.Classes.Race
 
                                     SingleHorseRace obstacleLog = horsesList[j].RaceLogs[RaceLogsLength - 1];
                                     obstacleLog.ObstaclesCheck[i] = "STRIKE";
-                                    horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
+                                    horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;                                    
                                 }
                                                                 
                                 break;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zaku\\Desktop\\ENW\\ENW\\ENW.csproj": {}
+    "C:\\Users\\Zaku\\Desktop\\ENW1\\ENW\\ENW.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zaku\\Desktop\\ENW\\ENW\\ENW.csproj": {
+    "C:\\Users\\Zaku\\Desktop\\ENW1\\ENW\\ENW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW\\ENW.csproj",
+        "projectUniqueName": "C:\\Users\\Zaku\\Desktop\\ENW1\\ENW\\ENW.csproj",
         "projectName": "ENW",
-        "projectPath": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW\\ENW.csproj",
+        "projectPath": "C:\\Users\\Zaku\\Desktop\\ENW1\\ENW\\ENW.csproj",
         "packagesPath": "C:\\Users\\Zaku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW\\obj\\",
+        "outputPath": "C:\\Users\\Zaku\\Desktop\\ENW1\\ENW\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zaku\\AppData\\Roaming\\NuGet\\NuGet.Config",

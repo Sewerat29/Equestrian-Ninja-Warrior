@@ -11,6 +11,7 @@
         int StreetCred { get; set; }
         int Strikes { get; set; }
         bool IsAlive { get; set; }
+        bool IsBionic { get; set; }
         int Money { get; set; }
         List<SingleHorseRace> RaceLogs { get; set; }
     }
