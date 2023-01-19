@@ -180,6 +180,9 @@ namespace ENW.Classes.Race
                     horse.RaceLogs[horse.RaceLogs.Count - 1].ObstaclesCheck[2],
                     horse.RaceLogs[horse.RaceLogs.Count - 1].ObstaclesCheck[3],
                     horse.RaceLogs[horse.RaceLogs.Count - 1].ObstaclesCheck[4],
+                    horse.RaceLogs[horse.RaceLogs.Count - 1].ObstaclesCheck[5],
+                    horse.RaceLogs[horse.RaceLogs.Count - 1].ObstaclesCheck[6], 
+                    horse.RaceLogs[horse.RaceLogs.Count - 1].ObstaclesCheck[7],
                     horse.RaceLogs[horse.RaceLogs.Count - 1].Points.ToString(),
                     horse.RaceLogs[horse.RaceLogs.Count - 1].Place.ToString()
                 );

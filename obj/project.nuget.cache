@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XtXDJZ59uYicnDQEoGdaX2LHeXLtTwbz6oVJ0KLUk5QuBIfRpPWrzlk2EpcSkEDmJKX/jRjnNwtvMt38WkMO4w==",
+  "dgSpecHash": "vYGUTYhyio4F7KI4FgDmhQjBHZs4d4GJwKHS33NSPevgQvOvtGURYbY8zc32D7W1CLrCGzPwwQr91Cz8K2FK/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW.csproj",
+  "projectFilePath": "C:\\Users\\Zaku\\Desktop\\ENW\\ENW\\ENW.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Zaku\\.nuget\\packages\\spectre.console\\0.45.0\\spectre.console.0.45.0.nupkg.sha512",
     "C:\\Users\\Zaku\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"

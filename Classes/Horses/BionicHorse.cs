@@ -6,15 +6,15 @@ namespace ENW.Classes.Horses
     internal class BionicHorse : GenericHorse
     {
         bool ironLungs = false;    //+2 stamina
-        bool assBlaster = false;   //+2 speed
+        bool assBlaster3000 = false;   //+2 speed
         bool absoluteUnit = false; //+2 strength
         bool ultraInstinct = false;   //+2 dexterity
         bool totemOfUndying = false; //+1 strike
 
-        public BionicHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, int money, bool ironLungs, bool assBlaster, bool absoluteUnit, bool springLegs, bool totemOfUndying) : base(name, color, stamina, strength, speed, dexterity, strikes, streetCred, isAlive, money)
+        public BionicHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, int money, bool ironLungs, bool assBlaster3000, bool absoluteUnit, bool springLegs, bool totemOfUndying) : base(name, color, stamina, strength, speed, dexterity, strikes, streetCred, isAlive, money)
         {
             this.ironLungs = ironLungs;
-            this.assBlaster = assBlaster; 
+            this.assBlaster3000 = assBlaster3000; 
             this.absoluteUnit = absoluteUnit;
             this.ultraInstinct = springLegs;
             this.totemOfUndying = totemOfUndying;
@@ -24,7 +24,7 @@ namespace ENW.Classes.Horses
         {
             if (ironLungs == true)
             {
-
+                
 
             }
         }
