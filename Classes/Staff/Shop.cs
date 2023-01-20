@@ -8,7 +8,7 @@ namespace ENW.Classes.Staff
     {
         public void ShopMenu(IGenericHorse MyHorse)
         {
-            string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
+            string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>() //Creates a Shop Menu
                 .Title("Upgrades: [grey]$3000 each                                                                         Money: " + MyHorse.Money + "[/]")
                 .PageSize(5)
                 .AddChoices(new[] {
@@ -17,15 +17,22 @@ namespace ENW.Classes.Staff
                     "[#afaf00]Absolute Unit®[/] [grey]+2 Strength[/]",
                     "[#afaf00]Ultra Instinct®[/] [grey]+2 Dexterity[/]"}));
 
-            if (menuOptions == "[#afaf00]Iron Lungs®[/] [grey]+2 Stamina[/]")
+            if (menuOptions == "[#afaf00]Iron Lungs®[/] [grey]+2 Stamina[/]") //Gives Upgrade to Horse, checks if the horse has Points and Money available before purchasing
             {
-                if (MyHorse.Stamina >= 20)
+                if (MyHorse.Stamina >= 20) 
                 {
                     AnsiConsole.Markup("[red]Stamina's already 20![/]\n");
                 }
-                else if (MyHorse.Money <= 3000)
+                else if (MyHorse.Money < 3000)
                 {
                     AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else if (MyHorse.Stamina == 19 && MyHorse.Money >= 3000)
+                {
+                    MyHorse.Stamina += 1;
+                    MyHorse.Money -= 3000;
+                    MyHorse.IsBionic = true;
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
                 else
                 {
@@ -42,9 +49,16 @@ namespace ENW.Classes.Staff
                 {
                     AnsiConsole.Markup("[red]Speed's already 20![/]\n");
                 }
-                else if (MyHorse.Money <= 3000)
+                else if (MyHorse.Money < 3000)
                 {
                     AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else if (MyHorse.Speed == 19 && MyHorse.Money >= 3000)
+                {
+                    MyHorse.Speed += 1;
+                    MyHorse.Money -= 3000;
+                    MyHorse.IsBionic = true;
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
                 else
                 {
@@ -61,9 +75,16 @@ namespace ENW.Classes.Staff
                 {
                     AnsiConsole.Markup("[red]Strength's already 20![/]\n");
                 }
-                else if (MyHorse.Money <= 3000)
+                else if (MyHorse.Money < 3000)
                 {
                     AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else if (MyHorse.Strength == 19 && MyHorse.Money >= 3000)
+                {
+                    MyHorse.Strength += 1;
+                    MyHorse.Money -= 3000;
+                    MyHorse.IsBionic = true;
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
                 else
                 {
@@ -80,9 +101,16 @@ namespace ENW.Classes.Staff
                 {
                     AnsiConsole.Markup("[red]Dexterity's already 20![/]\n");
                 }
-                else if (MyHorse.Money <= 3000)
+                else if (MyHorse.Money < 3000)
                 {
                     AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else if (MyHorse.Dexterity == 19 && MyHorse.Money >= 3000)
+                {
+                    MyHorse.Dexterity += 1;
+                    MyHorse.Money -= 3000;
+                    MyHorse.IsBionic = true;
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
                 else
                 {

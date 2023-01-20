@@ -1,6 +1,6 @@
 ﻿namespace ENW.Classes.Horses
 {
-    public struct SingleHorseRace
+    public struct SingleHorseRace //Logs the the Placement and Points that the Playable Horse has
     {
         public List<string> ObstaclesCheck;
         public int Points;
@@ -47,7 +47,7 @@
             
             StreetCred = streetCred;
             
-            Strikes = strikes;    //Eventos. If a horse has 3 Strikes it stops running 
+            Strikes = strikes;    //Eventos. If a horse has 3 Strikes the Sponsors stop paying the horse for the remainded of the race
             IsAlive = isAlive;
 
             IsBionic = isBionic;

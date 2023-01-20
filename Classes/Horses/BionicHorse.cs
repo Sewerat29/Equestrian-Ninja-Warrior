@@ -20,13 +20,5 @@ namespace ENW.Classes.Horses
             this.totemOfUndying = totemOfUndying;
         }
 
-        public void IronLungs()
-        {
-            if (ironLungs == true)
-            {
-                
-
-            }
-        }
     }
 }

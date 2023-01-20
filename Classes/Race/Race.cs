@@ -13,7 +13,7 @@ namespace ENW.Classes.Race
             this.numberOfTraps = numberOfTraps;
         }
 
-        public void Start()
+        public void Start() //boots the whole race 
         {
             var obstacles = new Obstacles.Obstacles();
 
@@ -23,7 +23,7 @@ namespace ENW.Classes.Race
                 horsesList[i].Strikes = 0;
             }
 
-            for (int i = 0; i < numberOfTraps; i++)
+            for (int i = 0; i < numberOfTraps; i++) //generates the Obsctacles and assigns the appropriate attribute to each 
             {
                 var obstacleStruct = obstacles.Generate();
 
@@ -151,7 +151,7 @@ namespace ENW.Classes.Race
                 AnsiConsole.Markup("\n\n");
             }
 
-            for (int i = 0; horsesList.Length > i; i++)
+            for (int i = 0; horsesList.Length > i; i++) //Gets the race data of each horse
             {
                 if(i == 0)
                 {
@@ -187,7 +187,7 @@ namespace ENW.Classes.Race
             table.AddColumn("Total Points");
             table.AddColumn("Place");
 
-            foreach (IGenericHorse horse in horsesList)
+            foreach (IGenericHorse horse in horsesList) //Creates a table that display the result of each Obstacle, Points and Place
             {
 
                 table.AddRow(

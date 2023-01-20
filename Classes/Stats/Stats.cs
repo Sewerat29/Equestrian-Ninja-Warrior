@@ -5,7 +5,7 @@ namespace ENW.Classes.Stats
 {
     internal class Stats
     {
-        public void StatsList(IGenericHorse MyHorse)
+        public void StatsList(IGenericHorse MyHorse) //creates a bar chart that display the Stats
         {
             
             AnsiConsole.Write(new BarChart()
@@ -17,9 +17,9 @@ namespace ENW.Classes.Stats
                 .AddItem("Speed", MyHorse.Speed, Color.Blue)
                 .AddItem("Stamina", MyHorse.Stamina, Color.Green));
             AnsiConsole.Markup("\n");
-            AnsiConsole.Write("Money: " + MyHorse.Money);
+            AnsiConsole.Write("Money: " + MyHorse.Money); //Shows the money 
             AnsiConsole.Markup("\n");
-            AnsiConsole.Write("Bionic: " + MyHorse.IsBionic);
+            AnsiConsole.Write("Bionic: " + MyHorse.IsBionic); //Shows if the horse is bionic
             AnsiConsole.Markup("\n\n");
         }
     }

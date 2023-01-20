@@ -20,8 +20,8 @@ namespace GameEngine
             string dir = AppDomain.CurrentDomain.BaseDirectory;
 
 
-            if (File.Exists(dir + "save/save.cvs"))
-            {
+            if (File.Exists(dir + "save/save.cvs")) //Checks for a save file when the game boots
+             {
                 int[] saveDate = ReadSaveDate();
 
                 this.saveExists = true;
@@ -34,7 +34,7 @@ namespace GameEngine
             }
         }
 
-        public int Run()
+        public int Run() //Runs the many features of the game 
         {
             if (saveExists)
             {
@@ -44,15 +44,15 @@ namespace GameEngine
             else
             {
                 AnsiConsole.Markup("Let's create your horse!\n");
-                string name = AnsiConsole.Ask<string>("What's your [#00d700]horse's[/] name?\n");
+                string name = AnsiConsole.Ask<string>("What's your [#00d700]horse's[/] name?\n"); //Asks the Player to name their horse
                 string color = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                    .Title("What color is your [#00d700]horse[/]?")
+                    .Title("What color is your [#00d700]horse[/]?") //Asks to assing a color to the horse
                     .PageSize(6)
                     .AddChoices(new[]{ "[red]Red[/]", "[green]Green[/]", "[blue]Blue[/]", "[magenta]Magenta[/]", "[#ff5f00]Orange[/]", "[#ff5faf]Pink[/]" }));
                                         
                 Console.Clear();
                 
-                //Stat Creator
+                //Asks the player to distribute points in their stats
                 AnsiConsole.Markup("You will have 50 points to distribute in 5 attributes to a max of 20 per attribute. Pick wisely!\n");
                 int streetCred = AnsiConsole.Prompt(
                         new TextPrompt<int>("Street Cred: \n")
@@ -128,7 +128,7 @@ namespace GameEngine
                 Menu(horse);
             }
 
-            //Listas e Cavalos Opositores
+            
             void Race(IGenericHorse MyHorse)
             {
                 //List with the Npc Horses
@@ -147,7 +147,7 @@ namespace GameEngine
                 
             }
 
-            void Date()
+            void Date() //Method to create the Calendar 
             {
                 if (date[3] == 0)
                 {
@@ -181,7 +181,7 @@ namespace GameEngine
                
             }
 
-            void Shop(IGenericHorse MyHorse)
+            void Shop(IGenericHorse MyHorse) //Method to call the Shop Class
             {
                 Console.Clear();    
                 var Shop = new Shop();
@@ -189,7 +189,7 @@ namespace GameEngine
                 Menu(MyHorse);
             }
 
-            void Stats(IGenericHorse MyHorse)
+            void Stats(IGenericHorse MyHorse) //Method to call Stats Class
             {
                 Console.Clear();
                 var Stats = new Stats();
@@ -200,7 +200,7 @@ namespace GameEngine
             //Main Menu
             void Menu(IGenericHorse MyHorse)
             {
-                var calendar = new Calendar(date[0], date[1]);
+                var calendar = new Calendar(date[0], date[1]); //runs the Calendar everytime the Main Menu is booted
                 calendar.AddCalendarEvent(date[0], date[1], date[2]);
                 calendar.HighlightStyle(Style.Parse("yellow bold"));
                 AnsiConsole.Write(calendar);
@@ -234,7 +234,7 @@ namespace GameEngine
                         Environment.Exit(1);
                     }
                 } else
-                {
+                {   //Shows the Options of the MainMenu
                     string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Main Menu")
                     .PageSize(4)
@@ -264,6 +264,7 @@ namespace GameEngine
             return 0;
         }
 
+        //Creates a Save File
         public int Save(IGenericHorse[] data)
         {
             string dir = AppDomain.CurrentDomain.BaseDirectory;
@@ -358,7 +359,7 @@ namespace GameEngine
 
         int[] ReadSaveDate()
         {
-            string dir = AppDomain.CurrentDomain.BaseDirectory;
+            string dir = AppDomain.CurrentDomain.BaseDirectory; //Finds files in the same directory as the application
             int[] myDate;
 
             using (var reader = new StreamReader(dir + "save/save.cvs"))
@@ -367,7 +368,7 @@ namespace GameEngine
                 var values = line?.Split(',');
 
                 myDate = new int[4] { 
-                    Int16.Parse(values[11]), 
+                    Int16.Parse(values[11]), //Int16.Parse converts date to it's 16-bit int equivalent
                     Int16.Parse(values[12]), 
                     Int16.Parse(values[13]),
                     Int16.Parse(values[14])

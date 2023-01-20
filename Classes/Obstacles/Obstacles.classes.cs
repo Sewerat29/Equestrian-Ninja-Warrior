@@ -4,9 +4,8 @@ using Spectre.Console;
 namespace ENW.Classes.Obstacles
 {
     internal class Obstacles
-    {
-        //Enums
-        private enum TypesOfObstacles
+    {        
+        private enum TypesOfObstacles //Enumerates the Type of Objects there are 
         {
             STAMINA,
             STRENGTH,
@@ -20,7 +19,7 @@ namespace ENW.Classes.Obstacles
             public int Difficulty;
         }
 
-        public ObstaclesResponse Generate()
+        public ObstaclesResponse Generate() //Generates the obstacles 
         {
             Random rnd = new Random();
             int ObstacleNumber = rnd.Next(0, 4);
@@ -31,8 +30,8 @@ namespace ENW.Classes.Obstacles
             {
                 case TypesOfObstacles.STAMINA:
                     {
-                        response.Type = TypesOfObstacles.STAMINA.ToString(); //Override ToString
-                        response.Difficulty = rnd.Next(0, 20);
+                        response.Type = TypesOfObstacles.STAMINA.ToString(); //Turns the enum value into a string
+                        response.Difficulty = rnd.Next(0, 20); //Rolls a fictional 20 sided dice to decide the outcome of the obstsacle
 
                         AnsiConsole.Markup("The Eternal® treadmill is upon them! Can our contestants endure? \n");
 
