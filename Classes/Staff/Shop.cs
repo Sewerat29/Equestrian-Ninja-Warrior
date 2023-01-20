@@ -19,52 +19,77 @@ namespace ENW.Classes.Staff
 
             if (menuOptions == "[#afaf00]Iron Lungs®[/] [grey]+2 Stamina[/]")
             {
-                if (MyHorse.Money >= 3000 && MyHorse.Stamina < 20)
+                if (MyHorse.Stamina >= 20)
+                {
+                    AnsiConsole.Markup("[red]Stamina's already 20![/]\n");
+                }
+                else if (MyHorse.Money <= 3000)
+                {
+                    AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else
                 {
                     MyHorse.Stamina += 2;
                     MyHorse.Money -= 3000;
                     MyHorse.IsBionic = true;
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
             }
+
             else if (menuOptions == "[#afaf00]AssBlaster3000®[/] [grey]+2 Speed[/]")
             {
-                if (MyHorse.Money >= 3000 && MyHorse.Speed < 20)
+                if (MyHorse.Speed >= 20)
+                {
+                    AnsiConsole.Markup("[red]Speed's already 20![/]\n");
+                }
+                else if (MyHorse.Money <= 3000)
+                {
+                    AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else
                 {
                     MyHorse.Speed += 2;
                     MyHorse.Money -= 3000;
                     MyHorse.IsBionic = true;
-                }
-                else
-                {
-                    Console.WriteLine("Is this a joke??");
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
 
             }
             else if (menuOptions == "[#afaf00]Absolute Unit®[/] [grey]+2 Strength[/]")
             {
-                if (MyHorse.Money >= 3000 && MyHorse.Strength < 20)
+                if (MyHorse.Strength >= 20)
+                {
+                    AnsiConsole.Markup("[red]Strength's already 20![/]\n");
+                }
+                else if (MyHorse.Money <= 3000)
+                {
+                    AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else
                 {
                     MyHorse.Strength += 2;
                     MyHorse.Money -= 3000;
                     MyHorse.IsBionic = true;
-                }
-                else
-                {
-                    Console.WriteLine("Is this a joke??");
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
 
             }
             else if (menuOptions == "[#afaf00]Ultra Instinct®[/] [grey]+2 Dexterity[/]")
             {
-                if (MyHorse.Money >= 3000 && MyHorse.Dexterity < 20)
+                if (MyHorse.Dexterity >= 20)
+                {
+                    AnsiConsole.Markup("[red]Dexterity's already 20![/]\n");
+                }
+                else if (MyHorse.Money <= 3000)
+                {
+                    AnsiConsole.Markup("[red]I'm not running a charity here! Come back when you have some money to spend![/]\n");
+                }
+                else
                 {
                     MyHorse.Dexterity += 2;
                     MyHorse.Money -= 3000;
                     MyHorse.IsBionic = true;
-                }
-                else
-                {
-                    Console.WriteLine("Is this a joke??");
+                    AnsiConsole.Markup("[green]Always a pleasure doing business![/]\n");
                 }
 
             }

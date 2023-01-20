@@ -321,7 +321,7 @@ namespace GameEngine
             {
                 Console.WriteLine(Ex.ToString());
             }
-
+            AnsiConsole.Markup("[green]Save Succesful![/]");
             return 0;
         }
 
