@@ -34,7 +34,7 @@
 
         public List<SingleHorseRace> RaceLogs {get; set;}
 
-        public GenericHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, bool isBionic)
+        public GenericHorse(string name, string color, int stamina, int strength, int speed, int dexterity, int strikes, int streetCred, bool isAlive, bool isBionic, int money)
         {
             Name = name;
             Color = color;
@@ -50,9 +50,9 @@
             Strikes = strikes;    //Eventos. If a horse has 3 Strikes it stops running 
             IsAlive = isAlive;
 
-            IsBionic = false;
+            IsBionic = isBionic;
             
-            Money = 0;
+            Money = money;
 
             RaceLogs = new List<SingleHorseRace>();
         }

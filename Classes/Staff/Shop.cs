@@ -15,8 +15,7 @@ namespace ENW.Classes.Staff
                     "[#afaf00]Iron Lungs®[/] [grey]+2 Stamina[/]",
                     "[#afaf00]AssBlaster3000®[/] [grey]+2 Speed[/]",
                     "[#afaf00]Absolute Unit®[/] [grey]+2 Strength[/]",
-                    "[#afaf00]Ultra Instinct®[/] [grey]+2 Dexterity[/]",
-                    "[#afaf00]Totem of Undying®[/] [grey]+1 Strike[/]" }));
+                    "[#afaf00]Ultra Instinct®[/] [grey]+2 Dexterity[/]"}));
 
             if (menuOptions == "[#afaf00]Iron Lungs®[/] [grey]+2 Stamina[/]")
             {
@@ -69,21 +68,6 @@ namespace ENW.Classes.Staff
                 }
 
             }
-            else if (menuOptions == "[#afaf00]Totem of Undying®[/] [grey]+1 Strike[/]")
-            {
-                if (MyHorse.Money >= 3000)
-                {
-                    MyHorse.Strikes += 1;
-                    MyHorse.Money -= 3000;
-                    MyHorse.IsBionic = true;
-                }
-                else
-                {
-                    Console.WriteLine("Is this a joke??");
-                }
-
-            }
-            
         }
     }
 

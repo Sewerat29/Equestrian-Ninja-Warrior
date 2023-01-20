@@ -20,9 +20,10 @@ namespace ENW.Classes.Race
             for(int i = 0; i < horsesList.Length; i++)
             {
                 horsesList[i].RaceLogs.Add(new SingleHorseRace(0, 0, numberOfTraps));
+                horsesList[i].Strikes = 0;
             }
 
-            for(int i = 0; i < numberOfTraps; i++)
+            for (int i = 0; i < numberOfTraps; i++)
             {
                 var obstacleStruct = obstacles.Generate();
 
@@ -43,7 +44,10 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-                                    horsesList[j].Money += 100;
+                                    if(horsesList[j].Strikes < 3)
+                                    {
+                                        horsesList[j].Money += 100;
+                                    }
                                 } 
                                 else
                                 {
@@ -52,7 +56,7 @@ namespace ENW.Classes.Race
                                     SingleHorseRace obstacleLog = horsesList[j].RaceLogs[RaceLogsLength - 1];
                                     obstacleLog.ObstaclesCheck[i] = "STRIKE";
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-                                    
+                                    horsesList[j].Strikes += 1; //eventos strikes
                                 }
 
                                 break;
@@ -67,7 +71,10 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-                                    horsesList[j].Money += 100;
+                                    if (horsesList[j].Strikes < 3)
+                                    {
+                                        horsesList[j].Money += 100;
+                                    }
                                 }
                                 else
                                 {
@@ -92,7 +99,10 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-                                    horsesList[j].Money += 100;
+                                    if (horsesList[j].Strikes < 3)
+                                    {
+                                        horsesList[j].Money += 100;
+                                    }
                                 } 
                                 else
                                 {
@@ -101,8 +111,9 @@ namespace ENW.Classes.Race
                                     SingleHorseRace obstacleLog = horsesList[j].RaceLogs[RaceLogsLength - 1];
                                     obstacleLog.ObstaclesCheck[i] = "STRIKE";
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
+                                    horsesList[j].Strikes += 1; //eventos strikes
                                 }
-                                
+
                                 break;
                             }
                         case "DEXTERITY":
@@ -115,7 +126,10 @@ namespace ENW.Classes.Race
                                     obstacleLog.ObstaclesCheck[i] = "PASS";
                                     obstacleLog.Points += 1;
                                     horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
-                                    horsesList[j].Money += 100;
+                                    if (horsesList[j].Strikes < 3)
+                                    {
+                                        horsesList[j].Money += 100;
+                                    }
                                 }
                                 else
                                 {
@@ -123,9 +137,10 @@ namespace ENW.Classes.Race
 
                                     SingleHorseRace obstacleLog = horsesList[j].RaceLogs[RaceLogsLength - 1];
                                     obstacleLog.ObstaclesCheck[i] = "STRIKE";
-                                    horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;                                    
+                                    horsesList[j].RaceLogs[RaceLogsLength - 1] = obstacleLog;
+                                    horsesList[j].Strikes += 1; //eventos strikes
                                 }
-                                                                
+
                                 break;
                             }
                     }

@@ -12,6 +12,7 @@ namespace GameEngine
     public class Runner
     {
         bool saveExists;
+        int[] date;
 
         public Runner(bool saveExists)
         {
@@ -20,12 +21,15 @@ namespace GameEngine
 
             if (File.Exists(dir + "save/save.cvs"))
             {
+                int[] saveDate = ReadSaveDate();
+
                 this.saveExists = true;
+                date = new int[4] { saveDate[0], saveDate[1], saveDate[2], saveDate[3] };
             }
             else
             {
                 this.saveExists = false;
-
+                date = new int[4] { 2023, 1, 1, 0 };
             }
         }
 
@@ -113,7 +117,7 @@ namespace GameEngine
 
                             }));
 
-                var horse = new GenericHorse(name, color, streetCred, stamina, strength, speed, dexterity, 0, true, false);
+                var horse = new GenericHorse(name, color, streetCred, stamina, strength, speed, dexterity, 0, true, false, 0);
 
                 IGenericHorse[] horseList = { horse };
 
@@ -128,17 +132,52 @@ namespace GameEngine
             {
                 //List with the Npc Horses
                 Console.Clear();
-                var horse1 = new GenericHorse("[Red]Juca[/]", "Red", 10, 9, 14, 4, 18, 0, true, false);
-                var horse2 = new GenericHorse("[Blue]Martim[/]", "Blue", 18, 16, 14, 12, 10, 0, true, false);
-                var horse3 = new GenericHorse("[Green]Pimenta[/]", "Green", 8, 7, 7, 7, 15, 0, true, false);
-                var horse4 = new GenericHorse("[magenta]Juncal[/]", "Magenta", 12, 18, 7, 7, 18, 0, true, false);
+                var horse1 = new GenericHorse("[Red]Juca[/]", "Red", 10, 9, 14, 4, 18, 0, true, false, 0);
+                var horse2 = new GenericHorse("[Blue]Martim[/]", "Blue", 18, 16, 14, 12, 10, 0, true, false, 0);
+                var horse3 = new GenericHorse("[Green]Pimenta[/]", "Green", 8, 7, 7, 7, 15, 0, true, false, 0);
+                var horse4 = new GenericHorse("[magenta]Juncal[/]", "Magenta", 12, 18, 7, 7, 18, 0, true, false, 0);
 
                 IGenericHorse[] horseList = { horse1, horse2, horse3, horse4, MyHorse};
 
                 var race = new Race(horseList, 8);
                 race.Start();
+                Date();
                 Menu(MyHorse);                
                 
+            }
+
+            void Date()
+            {
+                if (date[3] == 0)
+                {
+                    date[3] = 1;
+                } else if (date[3] == 1)
+                {
+                    date[3] = 0;
+                }
+
+                if (date[1] == 12 && date[2] == 31)
+                {
+                    date[0] += 1;
+                    date[1] = 1;
+                    date[2] = 1;
+                } else if (date[1] == 2 && date[2] == 28) 
+                {
+                    date[1] = 3;
+                    date[2] = 1;
+                } else if (date[1] % 2 != 0 && date[2] == 31)
+                {
+                    date[1] += 1;
+                    date[2] = 1;
+                } else if (date[1] % 2 == 0 && date[2] == 30)
+                {
+                    date[1] += 1;
+                    date[2] = 1;
+                } else
+                {
+                    date[2] += 1;
+                }
+               
             }
 
             void Shop(IGenericHorse MyHorse)
@@ -160,33 +199,65 @@ namespace GameEngine
             //Main Menu
             void Menu(IGenericHorse MyHorse)
             {
-                string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                var calendar = new Calendar(date[0], date[1]);
+                calendar.AddCalendarEvent(date[0], date[1], date[2]);
+                calendar.HighlightStyle(Style.Parse("yellow bold"));
+                AnsiConsole.Write(calendar);
+
+                if (date[3] == 1) {
+                    string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Main Menu")
                     .PageSize(5)
-                    .AddChoices(new[] { "[#afaf00]Race[/]", "[#afaf00]Shop[/]", "[#afaf00]Stats[/]","[#afaf00]Save[/]", "[#afaf00]Exit[/]" }));
+                    .AddChoices(new[] { "[#afaf00]Race[/]", "[#afaf00]Shop[/]", "[#afaf00]Stats[/]", "[#afaf00]Save[/]", "[#afaf00]Exit[/]" }));
 
-                if (menuOptions == "[#afaf00]Race[/]")
+                    if (menuOptions == "[#afaf00]Race[/]")
+                    {
+                        Race(MyHorse);
+                    }
+                    else if (menuOptions == "[#afaf00]Shop[/]")
+                    {
+                        Shop(MyHorse);
+                        Menu(MyHorse);
+                    }
+                    else if (menuOptions == "[#afaf00]Stats[/]")
+                    {
+                        Stats(MyHorse);
+                    }
+                    else if (menuOptions == "[#afaf00]Save[/]")
+                    {
+                        IGenericHorse[] horseList = { MyHorse };
+                        Save(horseList);
+                    }
+                    else if (menuOptions == "[#afaf00]Exit[/]")
+                    {
+                        Environment.Exit(1);
+                    }
+                } else
                 {
-                    Race(MyHorse);
+                    string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                    .Title("Main Menu")
+                    .PageSize(4)
+                    .AddChoices(new[] { "[#afaf00]Race[/]", "[#afaf00]Stats[/]", "[#afaf00]Save[/]", "[#afaf00]Exit[/]" }));
+
+                    if (menuOptions == "[#afaf00]Race[/]")
+                    {
+                        Race(MyHorse);
+                    }
+                    else if (menuOptions == "[#afaf00]Stats[/]")
+                    {
+                        Stats(MyHorse);
+                    }
+                    else if (menuOptions == "[#afaf00]Save[/]")
+                    {
+                        IGenericHorse[] horseList = { MyHorse };
+                        Save(horseList);
+                    }
+                    else if (menuOptions == "[#afaf00]Exit[/]")
+                    {
+                        Environment.Exit(1);
+                    }
                 }
-                else if (menuOptions == "[#afaf00]Shop[/]")
-                {
-                    Shop(MyHorse);
-                    Menu(MyHorse);
-                }
-                else if (menuOptions == "[#afaf00]Stats[/]")
-                {
-                    Stats(MyHorse);
-                }
-                else if (menuOptions == "[#afaf00]Save[/]")
-                {
-                    IGenericHorse[] horseList = {  MyHorse };
-                    Save(horseList);
-                }
-                else if (menuOptions == "[#afaf00]Exit[/]")
-                {
-                    Environment.Exit(1);
-                }
+                
             }
 
             return 0;
@@ -222,7 +293,23 @@ namespace GameEngine
                     {
                         for (int i = 0; i < data.Length; i++)
                         {
-                            Byte[] horse = new UTF8Encoding().GetBytes($"{data[i].Name}, {data[i].Color}, {data[i].Stamina}, {data[i].Strength}, {data[i].Speed}, {data[i].Dexterity}, {data[i].StreetCred}, {data[i].Strikes}, {data[i].IsAlive}\n");
+                            Byte[] horse = new UTF8Encoding().GetBytes($"" +
+                                $"{data[i].Name}, " +
+                                $"{data[i].Color}, " +
+                                $"{data[i].Stamina}, " +
+                                $"{data[i].Strength}, " +
+                                $"{data[i].Speed}, " +
+                                $"{data[i].Dexterity}, " +
+                                $"{data[i].StreetCred}, " +
+                                $"{data[i].Strikes}, " +
+                                $"{data[i].IsAlive}, " +
+                                $"{data[i].IsBionic}, " +
+                                $"{data[i].Money}, " +
+                                $"{date[0]}, " + // Year
+                                $"{date[1]}, " + // Month
+                                $"{date[2]}, " + // Month
+                                $"{date[3]}\n"); // isShopOpen
+
                             fs.Write(horse, 0, horse.Length);
                         }
                     }
@@ -249,10 +336,43 @@ namespace GameEngine
                 var line = reader.ReadLine();
                 var values = line?.Split(',');
 
-                myHorse = new GenericHorse(values[0], values[1], Int16.Parse(values[2]), Int16.Parse(values[3]), Int16.Parse(values[4]), Int16.Parse(values[5]), Int16.Parse(values[6]), Int16.Parse(values[7]), true, true);
+                myHorse = new GenericHorse(
+                    values[0], 
+                    values[1], 
+                    Int16.Parse(values[2]), 
+                    Int16.Parse(values[3]), 
+                    Int16.Parse(values[4]), 
+                    Int16.Parse(values[5]), 
+                    Int16.Parse(values[6]), 
+                    Int16.Parse(values[7]),
+                    Convert.ToBoolean(values[8]), 
+                    Convert.ToBoolean(values[9]),
+                    Int16.Parse(values[10])
+                    );
             }
 
             return myHorse;
+        }
+
+        int[] ReadSaveDate()
+        {
+            string dir = AppDomain.CurrentDomain.BaseDirectory;
+            int[] myDate;
+
+            using (var reader = new StreamReader(dir + "save/save.cvs"))
+            {
+                var line = reader.ReadLine();
+                var values = line?.Split(',');
+
+                myDate = new int[4] { 
+                    Int16.Parse(values[11]), 
+                    Int16.Parse(values[12]), 
+                    Int16.Parse(values[13]),
+                    Int16.Parse(values[14])
+                };
+            }
+
+            return myDate;
         }
     }
 }
