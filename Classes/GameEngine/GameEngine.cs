@@ -3,6 +3,7 @@ using ENW.Classes.Race;
 using ENW.Classes.Staff;
 using ENW.Classes.Stats;
 using Spectre.Console;
+using System.ComponentModel.Design;
 using System.Text;
 
 //This is the center of the action that makes the whole game run
@@ -321,6 +322,7 @@ namespace GameEngine
             {
                 Console.WriteLine(Ex.ToString());
             }
+            Console.Clear();
             AnsiConsole.Markup("[green]Save Succesful![/]");
             return 0;
         }
