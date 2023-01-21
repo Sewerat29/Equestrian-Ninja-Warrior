@@ -56,14 +56,14 @@ namespace GameEngine
                 AnsiConsole.Markup("You will have 50 points to distribute in 5 attributes to a max of 20 per attribute. Pick wisely!\n");
                 int streetCred = AnsiConsole.Prompt(
                         new TextPrompt<int>("Street Cred: \n")
-                            .ValidationErrorMessage("[red]That's not a valid number[/]" +
+                            .ValidationErrorMessage("[red]That's not a valid number[/]" + //Fail Safe: Não permite nada para alem dum Int ser atribuido
                             "")
                             .Validate(streetCred =>
                             {
                                 return streetCred switch
                                 {
-                                    < 0 => ValidationResult.Error("[red]Minimum 0 points![/]"),
-                                    > 20 => ValidationResult.Error("[red]Max 20 points![/]"),
+                                    < 0 => ValidationResult.Error("[red]Minimum 0 points![/]"), //Fail Safe: Determina que o limite minimo é 0
+                                    > 20 => ValidationResult.Error("[red]Max 20 points![/]"), // Fail Safe: Determina que o limite máxmo é 20
                                     _ => ValidationResult.Success(),
                                 };
                             }));
@@ -200,7 +200,7 @@ namespace GameEngine
             //Main Menu
             void Menu(IGenericHorse MyHorse)
             {
-                var calendar = new Calendar(date[0], date[1]); //runs the Calendar everytime the Main Menu is booted
+                var calendar = new Calendar(date[0], date[1]); //Runs the Calendar everytime the Main Menu is booted
                 calendar.AddCalendarEvent(date[0], date[1], date[2]);
                 calendar.HighlightStyle(Style.Parse("yellow bold"));
                 AnsiConsole.Write(calendar);
@@ -209,7 +209,7 @@ namespace GameEngine
                     string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Main Menu")
                     .PageSize(5)
-                    .AddChoices(new[] { "[#afaf00]Race[/]", "[#afaf00]Shop[/]", "[#afaf00]Stats[/]", "[#afaf00]Save[/]", "[#afaf00]Exit[/]" }));
+                    .AddChoices(new[] { "[#afaf00]Race[/]", "[#afaf00]Shop[/]", "[#afaf00]Stats[/]", "[#afaf00]Save[/]", "[#afaf00]Exit[/]" }));  //Shows the Options of the MainMenu
 
                     if (menuOptions == "[#afaf00]Race[/]")
                     {
@@ -233,8 +233,8 @@ namespace GameEngine
                     {
                         Environment.Exit(1);
                     }
-                } else
-                {   //Shows the Options of the MainMenu
+                } else //Removes the Option "Shop" from the menu
+                {   
                     string menuOptions = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Main Menu")
                     .PageSize(4)
@@ -342,7 +342,7 @@ namespace GameEngine
                 myHorse = new GenericHorse(
                     values[0], 
                     values[1], 
-                    Int16.Parse(values[2]), 
+                    Int16.Parse(values[2]), //Int16.Parse converts data to it's 16-bit int equivalent
                     Int16.Parse(values[3]), 
                     Int16.Parse(values[4]), 
                     Int16.Parse(values[5]), 
@@ -368,7 +368,7 @@ namespace GameEngine
                 var values = line?.Split(',');
 
                 myDate = new int[4] { 
-                    Int16.Parse(values[11]), //Int16.Parse converts date to it's 16-bit int equivalent
+                    Int16.Parse(values[11]), 
                     Int16.Parse(values[12]), 
                     Int16.Parse(values[13]),
                     Int16.Parse(values[14])
